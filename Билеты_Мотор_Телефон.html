@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Avelora — мои билеты</title>
+<style>
+:root{--blue:#0b57d0;--dark:#111827;--muted:#667085;--line:#e6ebf3;--bg:#f4f7fb;--green:#15a34a;--red:#e53935;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--dark);height:100vh;overflow:hidden}.phone{width:100vw;height:100vh;background:linear-gradient(180deg,#fff 0%,#f4f7fb 100%);overflow:hidden;position:relative}.status{height:32px;display:flex;align-items:center;justify-content:space-between;padding:8px 18px 0;font-size:13px;font-weight:700}.icons{letter-spacing:2px}.top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px 18px}.brand{display:flex;gap:10px;align-items:center}.logo{width:42px;height:42px;border-radius:50%;border:2px solid #0b4d9b;display:grid;place-items:center;color:#0b4d9b;font-weight:900;font-size:22px}.brand h1{margin:0;color:#0b4d9b;font-size:22px;letter-spacing:.4px}.brand p{margin:1px 0 0;font-size:10px;color:#53627a}.avatar{width:34px;height:34px;border-radius:50%;background:#edf3ff;display:grid;place-items:center;color:var(--blue);font-weight:800}.content{height:calc(100vh - 108px);overflow:hidden;padding:22px 16px 120px}h2{font-size:28px;margin:0 0 18px}.ticket{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 14px 36px rgba(16,24,40,.08);padding:20px}.ticket-head{display:flex;align-items:center;gap:14px}.ticket-icon{width:58px;height:58px;border-radius:16px;background:#edf3ff;display:grid;place-items:center;color:var(--blue);font-size:28px}.status-pill{margin-left:auto;background:#dcf6e4;color:#087a31;border-radius:999px;padding:8px 12px;font-weight:800;font-size:12px}.title{font-size:18px;font-weight:850}.num{color:#44516a;font-size:14px;margin-top:4px}.dash{border-top:1px dashed #d8e1ef;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px}.label{color:#667085}.value{font-weight:800;margin-top:4px}.green{color:var(--green)}.question{font-weight:850;margin:20px 0 12px;font-size:18px}.action{width:100%;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #dfe6f0;border-radius:18px;padding:15px 14px;margin-bottom:10px;text-align:left}.action:active{transform:scale(.985)}.action-ico{width:42px;height:42px;border-radius:13px;background:#f4f7ff;display:grid;place-items:center;font-size:20px}.action strong{display:block;font-size:16px}.action span{display:block;color:#667085;font-size:13px;margin-top:3px}.chev{margin-left:auto;font-size:24px;color:#667085}.notice{background:#eef4ff;border-radius:18px;padding:14px 16px;margin-top:18px;color:#344054;font-size:13px;line-height:1.35}.bottom{position:absolute;bottom:0;left:0;right:0;height:82px;background:rgba(255,255,255,.94);border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;backdrop-filter:blur(16px)}.tab{font-size:10px;color:#667085;text-align:center}.tab b{display:block;font-size:21px;margin-bottom:4px}.tab.active{color:var(--blue);font-weight:800}.overlay{position:absolute;inset:0;background:rgba(19,28,45,.56);display:none;align-items:center;justify-content:center;padding:18px}.modal{width:100%;max-width:340px;background:#fff;border-radius:24px;padding:26px 22px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.25)}.warn{width:56px;height:56px;border-radius:50%;border:2px solid #f5a000;color:#f5a000;display:grid;place-items:center;margin:0 auto 16px;font-size:34px}.modal h3{font-size:20px;margin:0 0 10px}.modal p{font-size:14px;color:#667085;line-height:1.4;margin:0 0 22px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:14px;padding:15px;font-weight:850;font-size:15px}.no{background:#f8fafc;border:1px solid #dfe6f0;color:#25324a}.yes{background:var(--red);color:white}.loader{width:58px;height:58px;border-radius:50%;border:4px solid #dff6e7;border-top-color:#17b85a;animation:spin .9s linear infinite;margin:0 auto 18px}@keyframes spin{to{transform:rotate(360deg)}}.check{width:76px;height:76px;border-radius:50%;border:3px solid #19b455;color:#19b455;display:grid;place-items:center;margin:0 auto 18px;font-size:46px}.return{width:100%;background:#eef4ff;color:var(--blue);border:1px solid #d7e4ff;border-radius:14px;padding:14px;font-weight:850}#loadingModal,#successModal{display:none}.small-note{font-size:12px;color:#667085;margin-top:12px}
+
+#motorScreen{position:fixed;inset:0;z-index:999999;background:radial-gradient(circle at 50% 35%,#173f7a 0%,#06152e 48%,#020817 100%);display:flex;align-items:center;justify-content:center;color:white;font-family:Arial,Helvetica,sans-serif}
+.motorBox{text-align:center;padding:40px;max-width:760px}.motorLogo{width:106px;height:106px;margin:0 auto 28px;border:4px solid rgba(255,255,255,.7);border-radius:50%;display:grid;place-items:center;font-size:46px;font-weight:900;letter-spacing:-2px;background:rgba(255,255,255,.08);box-shadow:0 22px 80px rgba(0,0,0,.35)}
+.motorTitle{font-size:34px;font-weight:800;letter-spacing:.04em;margin-bottom:26px;opacity:.92}.motorBtn{border:0;border-radius:28px;background:#ffffff;color:#0b3470;font-size:64px;font-weight:1000;letter-spacing:.08em;padding:34px 76px;cursor:pointer;box-shadow:0 30px 90px rgba(0,0,0,.45);transition:transform .12s ease,filter .12s ease}.motorBtn:hover{transform:translateY(-2px);filter:brightness(1.02)}.motorBtn:active{transform:scale(.98)}.motorHint{margin-top:28px;font-size:18px;opacity:.72;line-height:1.45}.app,.phone{visibility:hidden}body.started .app,body.started .phone{visibility:visible}body.started #motorScreen{display:none}body.started{background:#fff} 
+
+</style>
+</head>
+<body>
+
+<div id="motorScreen">
+  <div class="motorBox">
+    <div class="motorLogo">A</div>
+    <div class="motorTitle">готово к съёмке</div>
+    <button class="motorBtn" onclick="startMotor()">МОТОР!</button>
+    <div class="motorHint">Нажмите один раз — интерфейс откроется в полноэкранном режиме.</div>
+  </div>
+</div>
+
+<div class="phone">
+  <div class="status"><span>09:41</span><span class="icons">● ● ▰</span></div>
+  <div class="top">
+    <div class="brand"><div class="logo">A</div><div><h1>AVELORA</h1><p>путешествия без границ</p></div></div>
+    <div class="avatar">М</div>
+  </div>
+  <main class="content">
+    <h2>Мои билеты</h2>
+    <section class="ticket">
+      <div class="ticket-head">
+        <div class="ticket-icon">🎟</div>
+        <div><div class="title">Электронный билет</div><div class="num">№ 7845 3921 0187</div></div>
+        <div class="status-pill">● Активен</div>
+      </div>
+      <div class="dash"></div>
+      <div class="grid">
+        <div><div class="label">Пассажир</div><div class="value">1 взрослый</div></div>
+        <div><div class="label">Заказ</div><div class="value">#AD89321</div></div>
+        <div><div class="label">Оплата</div><div class="value">Онлайн</div></div>
+        <div><div class="label">Статус</div><div class="value green">Подтверждён</div></div>
+      </div>
+      <div class="question">Что вы хотите сделать?</div>
+      <button class="action"><div class="action-ico">📅</div><div><strong>Перенести билет</strong><span>Выбрать другой день</span></div><div class="chev">›</div></button>
+      <button class="action" onclick="openConfirm()"><div class="action-ico">✕</div><div><strong>Отменить заказ</strong><span>Оформить отмену</span></div><div class="chev">›</div></button>
+      <button class="action"><div class="action-ico">📄</div><div><strong>Детали заказа</strong><span>Информация о заказе</span></div><div class="chev">›</div></button>
+      <div class="notice"><b>Важно</b><br>Отмена возможна не позднее чем за 24 часа до отправления.</div>
+    </section>
+  </main>
+  <nav class="bottom"><div class="tab active"><b>🎟</b>Билеты</div><div class="tab"><b>🔎</b>Поиск</div><div class="tab"><b>♡</b>Избранное</div><div class="tab"><b>👤</b>Профиль</div></nav>
+  <div id="confirmOverlay" class="overlay">
+    <div class="modal"><div class="warn">!</div><h3>Вы уверены, что хотите отменить заказ?</h3><p>После подтверждения заказ будет аннулирован. Это действие нельзя будет отменить.</p><div class="row"><button class="btn no" onclick="closeConfirm()">Нет</button><button class="btn yes" onclick="startCancel()">Да</button></div></div>
+  </div>
+  <div id="loadingOverlay" class="overlay">
+    <div class="modal"><div class="loader"></div><h3>Отменяем ваш заказ...</h3><p>Пожалуйста, подождите</p></div>
+  </div>
+  <div id="successOverlay" class="overlay">
+    <div class="modal"><div class="check">✓</div><h3>Ваш заказ отменён!</h3><p>Подтверждение отмены отправлено на вашу почту.</p><button class="return">Вернуться к моим билетам</button><div class="small-note">Финальный экран для съёмки</div></div>
+  </div>
+</div>
+<script>
+function openConfirm(){document.getElementById('confirmOverlay').style.display='flex'}
+function closeConfirm(){document.getElementById('confirmOverlay').style.display='none'}
+function startCancel(){document.getElementById('confirmOverlay').style.display='none';document.getElementById('loadingOverlay').style.display='flex';setTimeout(()=>{document.getElementById('loadingOverlay').style.display='none';document.getElementById('successOverlay').style.display='flex'},900)}
+</script>
+
+<script>
+async function startMotor(){
+  try{
+    const el=document.documentElement;
+    if(el.requestFullscreen){await el.requestFullscreen();}
+    else if(el.webkitRequestFullscreen){await el.webkitRequestFullscreen();}
+    else if(el.msRequestFullscreen){await el.msRequestFullscreen();}
+  }catch(e){}
+  document.body.classList.add('started');
+  setTimeout(()=>{window.scrollTo(0,0);},50);
+}
+</script>
+
+</body>
+</html>
